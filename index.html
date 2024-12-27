@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookshelf App</title>
+  <link rel='stylesheet'
+    href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css' />
+  <link rel='stylesheet' href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <!-- Impor script kamu di sini -->
+  <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <img src="sssurf.svg" alt="sssurf" class="sssurf_header">
+  <header>
+    <h1 class="bookshelfApp">Bookshelf App</h1>
+    <div class="notification-wrapper">
+      <div class="notification-icon">
+        <i class="fi fi-ss-bell"></i>
+      </div>
+    </div>
+  </header>
+
+  <img src="sssurf.svg" alt="sssurf" class="sssurf_footer">
+
+  <main>
+    <div class="grid-container">
+      <!-- Form Section -->
+      <section>
+        <h2 class="buatBuku">Buat Buku</h2>
+        <form id="bookForm" data-testid="bookForm">
+          <div class="form-group">
+            <label for="bookFormTitle" name="title">Judul</label>
+            <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput">
+          </div>
+
+          <div class="form-group">
+            <label for="bookFormAuthor" name="author">Penulis</label>
+            <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput">
+          </div>
+
+          <div class="form-group">
+            <label for="bookFormYear" name="year">Tahun</label>
+            <input id="bookFormYear" type="number" required data-testid="bookFormYearInput">
+          </div>
+
+          <div class="checkbox-group form-group">
+            <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox">
+            <label for="bookFormIsComplete" name="isComplete">Selesai dibaca</label>
+          </div>
+
+          <button id="bookFormSubmit" type="submit" class="primary-button" data-testid="bookFormSubmitButton">
+            Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Books List Section -->
+      <div class="book-sections">
+        <!-- Search Section -->
+        <section>
+          <h2 class="cariBuku">Cari Buku</h2>
+          <form id="searchBook" class="search-form" data-testid="searchBookForm">
+            <div class="search-input-wrapper">
+              <label for="searchBookTitle" class="sr-only">Judul</label>
+              <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput"
+                placeholder="Masukkan judul buku...">
+            </div>
+            <button id="searchSubmit" type="submit" class="search-button" data-testid="searchBookFormSubmitButton">
+              Cari
+            </button>
+          </form>
+        </section>
+
+        <!-- Incomplete Books -->
+        <section>
+          <h2 class="belumSelesaiDibaca">Belum Selesai Dibaca</h2>
+          <div class="checkbox-group form-group">
+            <div id="incompleteBookList" class="book-list" data-testid="incompleteBookList">
+              <div data-bookid="{{ ID_buku }}" data-testid="bookItem">
+                <h3 class="book-title" data-testid="bookItemTitle">{{ judul_buku }}</h3>
+                <p class="book-info" data-testid="bookItemAuthor">Penulis: {{ penulis_buku }}</p>
+                <p class="book-info" data-testid="bookItemYear">Tahun: {{ tahun_rilis_buku }}</p>
+                <div>
+                  <button class="complete-button" data-testid="bookItemIsCompleteButton">{{ tombol_untuk_ubah_kondisi
+                  }}</button>
+                  <button class="delete-button" data-testid="bookItemDeleteButton">{{ tombol_untuk_hapus }}</button>
+                  <button class="edit-button" data-testid="bookItemEditButton">{{ tombol_untuk_edit }}</button>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <!-- Complete Books -->
+        <section>
+          <h2 class="SelesaiDibaca">Selesai Dibaca</h2>
+
+          <div id="completeBookList" data-testid="completeBookList">
+            <!-- 
+              Ini adalah struktur HTML untuk masing-masing buku.
+              Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
+            -->
+            <div data-bookid="{{ ID_buku }}" data-testid="bookItem">
+              <h3 class="book-title" data-testid="bookItemTitle">{{ judul_buku }}</h3>
+              <p class="book-info" data-testid="bookItemAuthor">Penulis: {{ penulis_buku }}</p>
+              <p class="book-info" data-testid="bookItemYear">Tahun: {{ tahun_rilis_buku }}</p>
+              <div>
+                <button class="complete-button" data-testid="bookItemIsCompleteButton">{{ tombol_untuk_ubah_kondisi
+                }}</button>
+                <button class="delete-button" data-testid="bookItemDeleteButton">{{ tombol_untuk_hapus }}</button>
+                <button class="edit-button" data-testid="bookItemEditButton">{{ tombol_untuk_edit }}</button>
+              </div>
+            </div>
+        </section>
+
+        <!-- Tombol Pagination -->
+
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
+
+</html>
